@@ -29,7 +29,7 @@ Este projeto visa modernizar uma aplicação legada, originalmente desenvolvida 
 
 ## 2. Arquitetura
 ### 2.1 Diagrama de Arquitetura Geral
-![Diagrama de Arquitetura](./assets/diagrama-arquitetura.png)
+![Diagrama de Arquitetura](./sprint2-arquitetura.png)
 
 ### 2.2 Descrição dos Componentes
 - **Front-end:** Implementado em React.js com TypeScript, utilizando hooks personalizados para melhor gerenciamento de estado e reuso de lógica.
