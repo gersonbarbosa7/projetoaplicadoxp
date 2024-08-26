@@ -43,19 +43,20 @@ graph LR
   B --> C[Back-end Node.js]
   C --> D[SQL Server/Oracle]
   C --> E[Serviços Externos]
+  ```
 
-3. Padrões de Projeto
+### 3. Padrões de Projeto
 
-3.1 Padrões Utilizados
+## 3.1 Padrões Utilizados
 SOLID: Princípios de design orientado a objetos para garantir um código modular e de fácil manutenção.
 Factory: Para criação de objetos complexos, facilitando a extensão e manutenção do código.
 Repository: Abstração da camada de acesso a dados, permitindo mudanças no banco de dados sem afetar o restante da aplicação.
 3.2 Justificativa para a Escolha dos Padrões
 Esses padrões foram escolhidos para garantir que o código seja fácil de entender, modificar, e escalar, além de facilitar a integração com outras partes da aplicação e sistemas externos.
 
-4. Back-end
+### 4. Back-end
 
-4.1 Estrutura do Projeto
+## 4.1 Estrutura do Projeto
 
 ├── src
 │   ├── controllers
@@ -66,13 +67,14 @@ Esses padrões foram escolhidos para garantir que o código seja fácil de enten
 │   └── index.ts
 └── tsconfig.json
 
-4.2 Endpoints de API
+### 4.2 Endpoints de API
 A documentação completa dos endpoints de API será gerada automaticamente e pode ser acessada aqui.
 
-4.3 Fluxo de Autenticação e Autorização
+## 4.3 Fluxo de Autenticação e Autorização
 O sistema de autenticação utiliza JWT para garantir segurança nas comunicações e controle de acesso às diferentes funcionalidades da aplicação.
 
-4.4 Gerenciamento de Dependências
+### 4.4 Gerenciamento de Dependências
+```json
 {
   "dependencies": {
     "express": "^4.17.1",
@@ -81,10 +83,11 @@ O sistema de autenticação utiliza JWT para garantir segurança nas comunicaç�
     "jsonwebtoken": "^8.5.1"
   }
 }
+```
 
-5. Banco de Dados
+### 5. Banco de Dados
 
-5.1 Modelo de Dados
+## 5.1 Modelo de Dados
 5.2 Estrutura de Tabelas
 Tabela usuarios:
 id: Chave primária.
@@ -92,12 +95,13 @@ nome: Nome do usuário.
 Tabela pedidos:
 id: Chave primária.
 usuario_id: Chave estrangeira que referencia usuarios.
-5.3 Procedimentos Armazenados e Triggers
+
+## 5.3 Procedimentos Armazenados e Triggers
 Descreveremos os procedimentos armazenados e triggers à medida que forem sendo desenvolvidos.
 
-6. Front-end
+### 6. Front-end
 
-6.1 Estrutura do Projeto
+## 6.1 Estrutura do Projeto
 ├── src
 │   ├── components
 │   ├── hooks
@@ -107,58 +111,63 @@ Descreveremos os procedimentos armazenados e triggers à medida que forem sendo 
 └── index.tsx
 
 
-6.2 Fluxo de Navegação
+## 6.2 Fluxo de Navegação
 O fluxo de navegação é gerenciado por React Router, permitindo uma navegação eficiente e modular. Abaixo, um diagrama simplificado de navegação:
+```mermaid
 graph TD
   Home --> Login
   Login --> Dashboard
   Dashboard --> Settings
+  ```
 
 
-6.3 Hooks Personalizados
+## 6.3 Hooks Personalizados
 Estamos utilizando hooks personalizados para encapsular lógicas complexas que são reutilizadas em diferentes componentes, seguindo as melhores práticas de React e TypeScript.
 
-6.4 Gerenciamento de Estado
+## 6.4 Gerenciamento de Estado
 O gerenciamento de estado global está sendo feito com Context API e useReducer, o que proporciona uma abordagem escalável e fácil de manter.
 
-7. DevOps e Infraestrutura
+### 7. DevOps e Infraestrutura
 
-7.1 Ambientes
+## 7.1 Ambientes
 Desenvolvimento: Configurado localmente com Docker e banco de dados SQL Server.
 Homologação: Ambiente configurado na AWS, utilizando SQL Server via RDS.
 Produção: Ambiente de produção com Oracle, configurado em RDS na AWS.
 7.2 CI/CD Pipeline
 O pipeline de CI/CD foi configurado usando GitHub Actions, com deploy automático para os ambientes de homologação e produção após a aprovação das pull requests.
 
-7.3 Deploy e Gerenciamento de Releases
+## 7.3 Deploy e Gerenciamento de Releases
 O deploy é feito de forma automatizada, utilizando Kubernetes para gerenciar a escalabilidade da aplicação em produção.
 
-8. Segurança
+### 8. Segurança
 
-8.1 Práticas de Segurança Implementadas
+## 8.1 Práticas de Segurança Implementadas
 Autenticação: JWT com renovação de tokens e expiração automática.
 Autorização: Baseada em roles, definindo permissões específicas para diferentes tipos de usuários.
 Criptografia: Uso de TLS/SSL para todas as comunicações entre os serviços.
 8.2 Controle de Acesso
 O controle de acesso segue uma hierarquia de roles, onde cada usuário tem permissões específicas que definem o que ele pode ou não fazer na aplicação.
 
-9. Testes
+### 9. Testes
 
-9.1 Estratégias de Teste
+## 9.1 Estratégias de Teste
 Testes Unitários: Cobertura de todas as funções críticas com Jest.
 Testes de Integração: Testes das interações entre componentes utilizando Supertest.
 Testes End-to-End: Cypress para validar fluxos completos do usuário.
-9.2 Ferramentas de Teste Utilizadas
+
+## 9.2 Ferramentas de Teste Utilizadas
 Jest: Framework principal para testes unitários.
 Cypress: Para testes end-to-end.
 Supertest: Para testes de integração das APIs.
-10. Manutenção e Suporte
 
-10.1 Rotinas de Manutenção
+### 10. Manutenção e Suporte
+
+## 10.1 Rotinas de Manutenção
 Manutenção programada com atualizações de dependências a cada sprint e verificações de segurança.
 
-10.2 Monitoramento e Logging
+## 10.2 Monitoramento e Logging
 Grafana: Para monitoramento de performance e uptime.
 Elasticsearch + Kibana: Para logging centralizado e análise de logs.
-10.3 Procedimentos de Backup e Recuperação
+
+## 10.3 Procedimentos de Backup e Recuperação
 Procedimentos automatizados de backup diário e recuperação de dados testados mensalmente.
